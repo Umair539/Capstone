@@ -1,0 +1,7 @@
+# Temporarily Hidden
+
+# Python virtual environment
+.venv/
+
+# Data
+*.csv
