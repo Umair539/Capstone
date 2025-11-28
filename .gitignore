@@ -5,3 +5,10 @@
 
 # Data
 *.csv
+
+# Logs
+logs/
+
+# Pycache
+__pycache__/
+*.pyc
