@@ -26,3 +26,15 @@ st.dataframe(
 st.line_chart(
     solar_agg[[str(feature)]]
 )
+
+#st.slider('slider', solar_agg.index[0], solar_agg.index[-1])
+
+min_epoch = 0.0
+max_epoch = solar_agg.index[-1].timestamp() -solar_agg.index[0].timestamp()
+st.slider(
+    "Select Time (seconds)",
+    min_epoch,
+    max_epoch,
+    step = 1,
+    )
+# Remember to convert the slider output back to datetime for use
