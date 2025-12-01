@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Capstone_Project"
+version = "0.1.0"
+description = "An ETL project for performing ETL on real time space weather data to display using a streamlit dashboard."
+authors = [{name = "Umair", email = "umohammed235@outlook.com"}]
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dynamic = ["dependencies"]
+
+[project.urls]
+Homepage = "https://github.com/Umair539/Capstone"
+
+[project.scripts]
+run_etl = "scripts.run_etl:main"
+run_tests = "tests.run_tests:main"
+run_app = "scripts.cli:launch_app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["*"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}

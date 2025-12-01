@@ -15,8 +15,10 @@ def load_raw_data(extracted_data):
 def load_transformed_data(transformed_data):
     try:
         solar, solar_agg = transformed_data
-        solar.to_csv('data/transformed/solar.csv', index=False)
-        solar_agg.to_csv('data/transformed/solar_agg.csv', index=False)
+        solar = solar.rename_axis('time_tag')
+        solar.to_csv('data/transformed/solar.csv', index=True)
+        solar_agg = solar_agg.rename_axis('time_tag')
+        solar_agg.to_csv('data/transformed/solar_agg.csv', index=True)
         return
     except Exception as e:
         logger.error(f'Failed to load transformed data: {str(e)}')

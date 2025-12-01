@@ -12,3 +12,6 @@ logs/
 # Pycache
 __pycache__/
 *.pyc
+
+# Python package metadata/build artifacts
+*.egg-info/
