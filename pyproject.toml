@@ -22,7 +22,7 @@ Homepage = "https://github.com/Umair539/Capstone"
 [project.scripts]
 run_etl = "scripts.run_etl:main"
 run_tests = "tests.run_tests:main"
-run_app = "scripts.cli:launch_app"
+run_app = "app.cli:launch_app"
 
 [tool.setuptools.packages.find]
 where = ["."]
