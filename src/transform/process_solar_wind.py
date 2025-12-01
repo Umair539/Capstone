@@ -23,8 +23,11 @@ def filter_columns(mag):
     return mag
 
 def set_time_index(df):
-    df.loc[:, 'time_tag'] = pd.to_datetime(df['time_tag'])
-    df = df.set_index('time_tag')
+    # new column was made and then assigned as index and assigning directly caused errors
+    time_index_series = pd.to_datetime(df['time_tag']) 
+    df = df.set_index(time_index_series)
+    df = df.drop(columns=['time_tag'])
+    df.index.name = 'time_tag'
     return df
 
 def match_time_index(mag, plasma):
@@ -38,7 +41,7 @@ def match_time_index(mag, plasma):
     return mag, plasma
 
 def join_mag_plasma(mag, plasma):
-    solar = plasma.join(mag, how='inner')
+    solar = plasma.join(mag, how='outer')
     return solar
 
 def cast_to_float(solar):
