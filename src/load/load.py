@@ -6,8 +6,8 @@ logger = setup_logger("load_data", "load_data.log")
 def load_raw_data(extracted_data):
     try:
         mag, plasma = extracted_data
-        mag.to_csv('../data/raw/mag.csv')
-        plasma.to_csv('../data/raw/plasma.csv')
+        mag.to_csv('data/raw/mag.csv', index=False)
+        plasma.to_csv('data/raw/plasma.csv', index=False)
         return
     except Exception as e:
         logger.error(f'Failed to load raw data: {str(e)}')
@@ -15,8 +15,8 @@ def load_raw_data(extracted_data):
 def load_transformed_data(transformed_data):
     try:
         solar, solar_agg = transformed_data
-        solar.to_csv('../data/transformed/solar.csv')
-        solar_agg.to_csv('../data/transformed/solar_agg.csv')
+        solar.to_csv('data/transformed/solar.csv', index=False)
+        solar_agg.to_csv('data/transformed/solar_agg.csv', index=False)
         return
     except Exception as e:
         logger.error(f'Failed to load transformed data: {str(e)}')

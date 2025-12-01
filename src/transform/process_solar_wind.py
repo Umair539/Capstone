@@ -23,7 +23,7 @@ def filter_columns(mag):
     return mag
 
 def set_time_index(df):
-    df['time_tag'] = pd.to_datetime(df['time_tag'])
+    df.loc[:, 'time_tag'] = pd.to_datetime(df['time_tag'])
     df = df.set_index('time_tag')
     return df
 
