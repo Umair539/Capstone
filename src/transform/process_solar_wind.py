@@ -23,7 +23,7 @@ def filter_columns(mag):
     return mag
 
 def set_time_index(df):
-    # new column was made and then assigned as index and assigning directly caused errors
+    # new column was made and then assigned as index since assigning directly caused errors
     time_index_series = pd.to_datetime(df['time_tag']) 
     df = df.set_index(time_index_series)
     df = df.drop(columns=['time_tag'])
