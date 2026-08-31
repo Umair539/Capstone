@@ -114,7 +114,7 @@ With the API caching layer and React frontend in place, the frontend could suppo
 
 ---
 
-## The API Caching Layer
+## API Caching Layer
 
 The API loads each table into memory once at startup, and a background poller checks each table on its own interval, fetching only rows with `updated_at` greater than the last fetch. Requests are served entirely from memory, so the database sees the same small load regardless of traffic.
 

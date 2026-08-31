@@ -72,8 +72,9 @@ This project is engineered as a decoupled system where data ingestion, serving, 
 * **Unit tests** cover all individual transform functions -- outlier filtering, missing data handling, source fallback logic, column filtering, pressure calculation, model inference helpers, and more.
 * **Component tests** cover all transform orchestrators end to end -- `process_rtsw`, `process_dst`, `process_kp`, `process_ssn`, `prepare_model_inputs`, `model_inference`, and others.
 * **Integration tests** run the full transform pipeline against a fixed fixture snapshot of real NOAA data, asserting schema, null counts and datetime index integrity.
+* **API tests** cover the FastAPI caching layer, poller, and every router, plus OVATION aurora data parsing.
 * **Coverage** of 90% across the transform layer enforced in CI, currently at 99%.
-* **CI gate** runs lint, unit, component, and integration tests on every push to `main` before the Docker build, blocking deploy on any failure.
+* **CI gate** runs lint and the full test suite on every push to `main` before either the Lambda or the API image is built, blocking deploy on any failure.
 
 ### 7. Development Environment
 * A parallel dev environment mirrors the production pipeline for testing purposes.
