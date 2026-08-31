@@ -63,9 +63,8 @@ This project is engineered as a decoupled system where data ingestion, serving, 
 
 ### 5. Scheduled Orchestration
 * The ETL pipeline is packaged as a Docker container, stored in **AWS ECR**, and deployed as an **AWS Lambda** function.
-* **AWS EventBridge Scheduler** triggers the Lambda every 15 minutes, keeping both S3 and the database continuously up to date.
-* **AWS CloudWatch** captures Lambda logs for monitoring and debugging each pipeline run.
-* **AWS SNS** sends alarm notifications when the pipeline fails, enabling rapid incident response.
+* **AWS EventBridge** triggers the Lambda every ~3 minutes, keeping both S3 and the database continuously up to date. A separate trigger runs every day at midnight to compact that day's OVATION aurora data into a single Parquet file, which is then exported to a prod bucket in Cloudflare R2.
+* **AWS CloudWatch** captures Lambda logs for monitoring and debugging each pipeline run, plus per-source silence alarms, a schema-error alarm, and a Lambda-crash alarm, all notifying via **AWS SNS**.
 * **GitHub Actions** automates the deployment pipeline: on every push to main that changes relevant files, the Docker image is rebuilt, pushed to ECR, and the Lambda function is updated to use the latest image.
 * As NOAA API endpoints only provide the last week of data, this ensures the database is kept up to date during periods of inactivity.
 
