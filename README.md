@@ -8,7 +8,7 @@ End-to-end space weather data platform that ingests near real-time NOAA data, pr
 
 My [dissertation](https://github.com/Umair539/Dissertation) involved training and testing machine learning models with historical space weather data. After working with static data, I wanted to gain experience working with live, frequently updated data, building something that continuously ingests, transforms, and delivers data to a frontend application.
 
-Space weather was a natural fit. Having studied it through my dissertation, and with astronomy being a genuine interest of mine, it made sense to keep working in the same domain. What started as a way to gain experience ended up growing into a full production-grade AWS pipeline with automated orchestration, ML inference, and a live dashboard.
+Space weather was a natural fit. Having studied it through my dissertation, and with astronomy being a genuine interest of mine, it made sense to keep working in the same domain. What started as a way to gain experience grew into a fully automated AWS data pipeline with scheduled orchestration, ML inference, and a live dashboard.
 
 **Live Dashboard Link:** https://spaceweatherdashboard.com
 
